@@ -13,12 +13,18 @@ const store = (name) => {
     index();
 };
 
-module.exports = {index, store};
+const update = (position, name) => {
+    fruits[position] = name;
+    index();
+};
 
-exports = {
-    index() {},
-    store() {}
-}
+const destroy = (position) => {
+    fruits.splice([position], 0);
+    index();
+};
+
+
+module.exports = {index, store, update, destroy};
 
 
 

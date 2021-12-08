@@ -1,4 +1,4 @@
-const fruits = ["Apel", "Durian", "Kelapa"];
+let fruits = ["Jeruk", "Apel", "Durian"];
 
 module.exports = fruits;
 
