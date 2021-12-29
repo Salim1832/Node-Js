@@ -12,7 +12,11 @@ const router = require("./routes/api");
 app.use(router);
 
 // definisikan port
-app.listen(3000, () => {
+app.listen(3000,  () => {
     console.log("Server running at http://localhost:3000");
 });
 
+// pake router
+// const router = require("../routes/api");
+// app.use(express.json());
+// app.use(router);

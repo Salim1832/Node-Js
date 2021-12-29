@@ -1,26 +1,39 @@
-//Import data student
-const students = require("../data/students");
+//Import data model student
+const Student = require("../models/Student");
 
 class StudentController {
 
-    index(req, res) {
+    async index(req, res) {
+        const students = await Student.all();
         const data = {
-            message : "Menampilkan data Students",
-            data : students
-        }
-        res.json(data);
+            message : "Menampilkan semua Student",
+            data : students,
+        };
+        res.status(200).json(data);
+
     }
 
-    store(req, res) {
-        const {name} = req.body;
+    // Student.all(function(results) {
+    //     const data = {
+    //         message : "Menampilkan data Students",
+    //         data : results
+    //     };
+    //     res.json(data);
+    // });
+
+    async store(req, res,) {
+        const students = await Student.create(req.body);
+            // name: req.body.name,
+            // nim: req.body.nim,
+            // email: req.body.email,
+            // jurusan: req.body.jurusan
         
         const data = {
-            message : `Menambahkan data student ${name}`,
-            data : students
-        }
+            message : `Menambahkan data student`,
+            data : students,
+        };
 
-        students.push(name);
-        res.json(data);
+        res.status(200).json(data);
     }
 
     update(req, res) {
